@@ -1,0 +1,41 @@
+// source: https://css-irl.info/a-modern-front-end-workflow-part-3/
+@import "./01-config/variables";
+@import "./01-config/mixins";
+@import "./01-config/functions";
+
+@import "./02-base/reset";
+@import "./02-base/typography";
+
+@import "./04-globals/header";
+@import "./04-globals/footer";
+@import "./04-globals/layout";
+
+// * {
+//   outline: 1px solid hotpink;
+// }
+// body {
+//   font-family: "Lexend Deca", sans-serif;
+//   font-weight: 400;
+//   color: $white-transparent;
+//   background-color: $gray;
+//   font-size: 15px;
+//   line-height: 1.6;
+//   @media (min-width: $desktop) {
+//     display: grid;
+//     place-items: center;
+//   }
+// }
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr calc(min(60ch, (100% - 64px))) 1fr;
+  grid-column-gap: 32px;
+}
+
+.wrapper > * {
+  grid-column: 2;
+}
+
+.full-bleed {
+  width: 100%;
+  grid-column: 1 / -1;
+}
