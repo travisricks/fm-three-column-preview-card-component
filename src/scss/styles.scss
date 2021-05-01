@@ -10,25 +10,46 @@
 @import "./04-globals/footer";
 @import "./04-globals/layout";
 
-// * {
-//   outline: 1px solid hotpink;
-// }
-// body {
-//   font-family: "Lexend Deca", sans-serif;
-//   font-weight: 400;
-//   color: $white-transparent;
-//   background-color: $gray;
-//   font-size: 15px;
-//   line-height: 1.6;
-//   @media (min-width: $desktop) {
-//     display: grid;
-//     place-items: center;
-//   }
-// }
+$mobile: 375px;
+$desktop: 925px;
+
+$orange: hsl(31, 77%, 52%);
+$cyan-dark: hsl(184, 100%, 22%);
+$cyan-very-dark: hsl(179, 100%, 13%);
+$white-transparent: hsla(0, 0%, 100%, 0.75); /* Transparent white (paragraphs)*/
+$gray: hsl(0, 0%, 95%); /* Very light gray (background, headings, buttons) */
+
+$font-shoulders: "Big Shoulders Display", cursive;
+$font-lexend: "Lexend Deca", sans-serif;
+
+* {
+  // outline: 1px solid hotpink;
+}
+body {
+  font-family: $font-lexend;
+  font-weight: 400;
+  color: $white-transparent;
+  background-color: $gray;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0;
+  padding: 88px 0;
+  position: relative;
+  @media (min-width: $desktop) {
+    display: grid;
+    place-items: center;
+  }
+}
 .wrapper {
-  display: grid;
-  grid-template-columns: 1fr calc(min(60ch, (100% - 64px))) 1fr;
-  grid-column-gap: 32px;
+  // display: grid;
+  // grid-template-columns: 1fr calc(min(60ch, (100% - 64px))) 1fr;
+  // grid-column-gap: 32px;
+  @media (min-width: $desktop) {
+    display: flex;
+    width: 920px;
+    // display: grid;
+    // place-items: center;
+  }
 }
 
 .wrapper > * {
@@ -38,4 +59,93 @@
 .full-bleed {
   width: 100%;
   grid-column: 1 / -1;
+}
+
+.card {
+  max-width: 327px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 48px;
+
+  @media (min-width: $desktop) {
+    max-width: unset;
+  }
+
+  &--orange {
+    background-color: $orange;
+    border-radius: 8px 8px 0 0;
+    @media (min-width: $desktop) {
+      border-radius: 8px 0 0 8px;
+    }
+  }
+  &--cyan-dark {
+    background-color: $cyan-dark;
+  }
+  &--cyan-very-dark {
+    background-color: $cyan-very-dark;
+    border-radius: 0 0 8px 8px;
+    @media (min-width: $desktop) {
+      border-radius: 0 8px 8px 0;
+    }
+  }
+
+  svg {
+    width: 64px;
+    height: 40px;
+  }
+
+  h1 {
+    font-family: $font-shoulders;
+    font-size: 40px;
+    color: $gray;
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+
+  p {
+    margin-bottom: 25px;
+    @media (min-width: $desktop) {
+      margin-bottom: 83px;
+    }
+  }
+
+  button {
+    background: $gray;
+    border-radius: 25px;
+    width: 146px;
+    height: 48px;
+    line-height: 48px;
+    // outline: none;
+    border: none;
+    mix-blend-mode: screen;
+    transition: all 0.25s ease;
+
+    &:hover {
+      border: 1px solid white;
+      background: none;
+      color: white;
+      mix-blend-mode: unset;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+  }
+}
+
+.attribution {
+  position: absolute;
+  bottom: 12px;
+  font-size: 11px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0;
+  color: $cyan-very-dark;
+  text-align: center;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      color: $orange;
+    }
+  }
 }
