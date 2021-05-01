@@ -1,14 +1,4 @@
-// source: https://css-irl.info/a-modern-front-end-workflow-part-3/
-@import "./01-config/variables";
-@import "./01-config/mixins";
-@import "./01-config/functions";
-
 @import "./02-base/reset";
-@import "./02-base/typography";
-
-@import "./04-globals/header";
-@import "./04-globals/footer";
-@import "./04-globals/layout";
 
 $mobile: 375px;
 $desktop: 925px;
@@ -41,24 +31,10 @@ body {
   }
 }
 .wrapper {
-  // display: grid;
-  // grid-template-columns: 1fr calc(min(60ch, (100% - 64px))) 1fr;
-  // grid-column-gap: 32px;
   @media (min-width: $desktop) {
     display: flex;
     width: 920px;
-    // display: grid;
-    // place-items: center;
   }
-}
-
-.wrapper > * {
-  grid-column: 2;
-}
-
-.full-bleed {
-  width: 100%;
-  grid-column: 1 / -1;
 }
 
 .card {
@@ -78,9 +54,11 @@ body {
       border-radius: 8px 0 0 8px;
     }
   }
+
   &--cyan-dark {
     background-color: $cyan-dark;
   }
+
   &--cyan-very-dark {
     background-color: $cyan-very-dark;
     border-radius: 0 0 8px 8px;

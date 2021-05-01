@@ -24,11 +24,11 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.png)
+![screenshot of the design](./screenshot.png)
 
 ### Links
 
-- [Live site URL](https://keen-ritchie-e4d1ce.netlify.app/)
+- [Live site URL](https://sharp-swirles-090272.netlify.app/)
 
 ## My process
 
@@ -38,43 +38,13 @@ Users should be able to:
 - SCSS
 - Flexbox
 - Mobile-first workflow
+- BEM class names
 
 ### What I learned
 
-#### Images: mix-blend-mode and picture element quirks
+#### Knockout Text: use mix-blend-mode: screen to make transparent text
 
-- You can use `mix-blend-mode` and `opacity` along with a `background-color` on the wrapper to colorize an image.
-- When an image is inside a picture element, you have to give it a defined `width` to use `object-fit`.
-
-```css
-.picture-wrapper {
-  background-color: $accent-violet;
-
-  picture {
-    width: 100%;
-    height: 100%;
-    display: flex;
-  }
-
-  img {
-    mix-blend-mode: multiply;
-    opacity: 75%;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-}
-```
-
-#### Conflicts between SCSS functions and CSS functions
-
-- Functions like `min` and `max` are currently duplicated between SCSS and CSS. To ensure the CSS one is used, you can capitalize the function. This is needed because SCSS can't handle functions with certain sets of different units.
-
-```css
-.wrapper {
-  width: Min(1110px, 90vw); /* capitalized so scss ignores it */
-}
-```
+- For the buttons, I used `mix-blend-mode: screen` to make the text appear as if it's the color of the background color.
 
 ## Author
 
