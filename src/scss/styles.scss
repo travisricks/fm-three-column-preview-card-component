@@ -51,9 +51,11 @@ body {
 
   &--orange {
     background-color: $orange;
-    border-radius: 8px 8px 0 0;
+    border-radius: var(--brd-top-left, 8px) var(--brd-top-right, 8px)
+      var(--brd-btm-right, 0) var(--brd-btm-left, 0);
     @media (min-width: $desktop) {
-      border-radius: 8px 0 0 8px;
+      --brd-top-right: 0;
+      --brd-btm-left: 8px;
     }
   }
 
@@ -63,9 +65,11 @@ body {
 
   &--cyan-very-dark {
     background-color: $cyan-very-dark;
-    border-radius: 0 0 8px 8px;
+    border-radius: var(--brd-top-left, 0) var(--brd-top-right, 0)
+      var(--brd-btm-right, 8px) var(--brd-btm-left, 8px);
     @media (min-width: $desktop) {
-      border-radius: 0 8px 8px 0;
+      --brd-top-right: 8px;
+      --brd-btm-left: 0;
     }
   }
 
@@ -95,7 +99,6 @@ body {
     width: 146px;
     height: 48px;
     line-height: 48px;
-    // outline: none;
     border: none;
     mix-blend-mode: screen;
     transition: all 0.25s ease;
